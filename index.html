@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CreatorBoost</title>
+<style>
+/* --- Reset & Base --- */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', Arial, sans-serif;
+  background: linear-gradient(180deg, #1E3A8A 0%, #254AA2 100%);
+  color: #F5F5F5;
+  text-align: center;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* --- Container --- */
+.container {
+  background: #ffffff;
+  color: #1E3A8A;
+  max-width: 500px;
+  width: 90%;
+  padding: 25px 20px;
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+}
+
+/* --- Header --- */
+h1 {
+  margin-top: 0;
+  font-size: 28px;
+  font-weight: 700;
+  color: #1E3A8A;
+}
+
+p {
+  color: #1E3A8A;
+  margin-top: 5px;
+  margin-bottom: 20px;
+}
+
+/* --- Buttons --- */
+button {
+  padding: 14px 22px;
+  margin: 8px;
+  border: none;
+  border-radius: 10px;
+  background: #F97316;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+button:hover {
+  background: #e65f10;
+  transform: translateY(-2px);
+}
+
+/* --- Result Box --- */
+.result {
+  margin-top: 20px;
+  padding: 18px;
+  border-radius: 12px;
+  background: #f5f5f5;
+  color: #1E3A8A;
+  min-height: 120px;
+  text-align: left;
+  white-space: pre-line;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+/* --- Footer / small note --- */
+.footer {
+  margin-top: 15px;
+  font-size: 12px;
+  color: #777;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h1>🎭 CreatorBoost</h1>
+  <p>Instant Skits & Viral Content Ideas</p>
+
+  <button onclick="generateSkit()">Generate Skit</button>
+  <button onclick="generateHook()">Viral Hook</button>
+  <button onclick="generateCaption()">Caption</button>
+  <button onclick="generateHashtag()">Hashtags</button>
+  <button onclick="copyText()">Copy</button>
+
+  <div id="result" class="result">
+Tap a button to generate content
+  </div>
+
+  <div class="footer">
+    Free MVP – Professional Look & Feel
+  </div>
+</div>
+
+<script>
+// --- Data Arrays ---
+const skits = [
+"Mom: Did you eat the snacks?\nKid: No... why would I?\nPlot Twist: The dog reveals it! 😂",
+"Teacher: Where is your homework?\nStudent: I forgot it at home… but someone recorded it.\nPlot Twist: Teacher already saw it.",
+"Friend 1: Why are you whispering?\nFriend 2: Phone is sleeping.\nPlot Twist: Phone rings loudly."
+];
+
+const hooks = [
+"Stop scrolling…",
+"I tried this trend and it failed…",
+"No one talks about this…",
+"This is why your videos don't go viral…",
+"I tested a viral trick…"
+];
+
+const captions = [
+"POV: Your mom finds your hidden snacks 😭",
+"When your internet stops mid-game",
+"When the teacher asks about homework",
+"When your friend lies badly"
+];
+
+const hashtags = [
+"#viralvideo #fyp #comedy",
+"#trending #contentcreator #viral",
+"#fyp #funnyvideos #reels",
+"#viralreels #comedycontent"
+];
+
+// --- Helper Function ---
+function randomItem(arr){
+  return arr[Math.floor(Math.random()*arr.length)];
+}
+
+// --- Generators ---
+function generateSkit(){
+  document.getElementById("result").innerText = "🎭 Comedy Skit:\n\n" + randomItem(skits);
+}
+
+function generateHook(){
+  document.getElementById("result").innerText = "🔥 Viral Hook:\n\n" + randomItem(hooks);
+}
+
+function generateCaption(){
+  document.getElementById("result").innerText = "✍ Caption:\n\n" + randomItem(captions);
+}
+
+function generateHashtag(){
+  document.getElementById("result").innerText = "📈 Hashtags:\n\n" + randomItem(hashtags);
+}
+
+function copyText(){
+  let text = document.getElementById("result").innerText;
+  navigator.clipboard.writeText(text);
+  alert("Copied to clipboard!");
+}
+</script>
+
+</body>
+</html>
